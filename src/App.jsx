@@ -5,7 +5,11 @@ const App =()=> {
   
 
   return (
-    <Canvas></Canvas>
+    <Canvas>
+      <mesh>
+        
+      </mesh>
+    </Canvas>
   )
 }
 
