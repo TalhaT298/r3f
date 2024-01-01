@@ -7,8 +7,8 @@ const App =()=> {
   return (
     <Canvas>
       <mesh>
-        <boxGeometry args={[]}/>
-        <meshBasicMaterial/>
+        <boxGeometry/>
+        <meshStandardMaterial/>
       </mesh>
     </Canvas>
   )
