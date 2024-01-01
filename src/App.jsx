@@ -2,6 +2,14 @@
 import './App.css'
 import {Canvas} from "@react-three/fiber"
 
+
+const Cube = () => {
+  return(
+
+  )
+}
+
+
 const App =()=> {
   
 
