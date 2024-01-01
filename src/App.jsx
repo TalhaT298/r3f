@@ -17,6 +17,14 @@ const App =()=> {
         <boxGeometry/>
         <meshStandardMaterial color={"orange"}/>
       </mesh>
+      <mesh position={[-1,2,0]}>
+        <boxGeometry/>
+        <meshStandardMaterial color={"orange"}/>
+      </mesh>
+      <mesh position={[1,2,0]}>
+        <boxGeometry/>
+        <meshStandardMaterial color={"orange"}/>
+      </mesh>
     </Canvas>
   )
 }
