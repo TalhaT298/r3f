@@ -7,7 +7,7 @@ const App =()=> {
   return (
     <Canvas>
       <mesh>
-        
+        <boxGeometry/>
       </mesh>
     </Canvas>
   )
