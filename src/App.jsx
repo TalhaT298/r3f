@@ -1,9 +1,9 @@
 /* eslint-disable no-undef */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/no-unknown-property */
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import './App.css'
-import {Canvas, useFrame} from "@react-three/fiber"
+import {Canvas, events, useFrame} from "@react-three/fiber"
 
 
 const Cube = ({position,size,color}) => {
@@ -28,15 +28,21 @@ const Cube = ({position,size,color}) => {
 const Sphere = ({position,size,color}) =>{
   const ref = useRef()
 
+  const [isHovered,setIsHovered]=useState(false)
   // eslint-disable-next-line no-unused-vars
   useFrame((state,delta) =>{
-      ref.current.rotation.x += delta
-      ref.current.rotation.y += delta*2.0
-      ref.current.position.z=Math.sin(state.clock.elapsedTime)*2
+      // ref.current.rotation.x += delta
+      ref.current.rotation.y += delta*0.2
+      // ref.current.position.z=Math.sin(state.clock.elapsedTime)*2
 
     })
   return(
-    <mesh position={position} ref={ref}>
+    <mesh 
+    position={position} 
+    ref={ref} 
+    onPointerEnter={(event) => (event.stopPropagation(),setIsHovered(true))}
+    onPointerLeave={() => setIsHovered(false)}
+    >
       <sphereGeometry args={size}/>
       <meshStandardMaterial color={color} wireframe/>
     </mesh>
@@ -85,8 +91,8 @@ const App =()=> {
       </group> */}
       {/* <Cube position={[0,0,1]} size={[1,1,1]} color={"orange"}/> */}
       <Sphere position={[0,0,0]} size={[1,30,30]} color={"orange"}/>
-      <Torus position={[2,0,0]} size={[0.8,0.1,30,30]} color={"blue"}/>
-      <TorusKnot position={[-2,0,0]} size={[0.5,0.1,1000,50]} color={"hotpink"}/>
+      {/* <Torus position={[2,0,0]} size={[0.8,0.1,30,30]} color={"blue"}/>
+      <TorusKnot position={[-2,0,0]} size={[0.5,0.1,1000,50]} color={"hotpink"}/> */}
     </Canvas>
   )
 }
