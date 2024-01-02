@@ -4,7 +4,8 @@
 import { useRef, useState } from 'react'
 import './App.css'
 import {Canvas, events, useFrame} from "@react-three/fiber"
-import { MeshWobbleMaterial, OrbitControls} from '@react-three/drei'
+import { MeshWobbleMaterial, OrbitControls, useHelper} from '@react-three/drei'
+import { DirectionalLight, DirectionalLightHelper } from 'three'
 
 const Cube = ({position,size,color}) => {
   const ref = useRef()
@@ -82,13 +83,12 @@ const TorusKnot = ({position,size,color}) =>{
   )
 }
 
-
-const App =()=> {
-  
-
-  return (
-    <Canvas>
-      <directionalLight position={[0,0,2]} intensity={0.5}/>
+const Scene =() => {
+  const directionalLightREf = useRef()
+  useHelper(directionalLightREf, DirectionalLightHelper,0.5,"white")
+  return(
+    <>
+    <directionalLight position={[0,1,2]} intensity={0.5} ref={directionalLightREf}/>
       <ambientLight intensity={0.1}/>
       {/* <group position={[0,-1,0]}>
       <Cube position={[1,0,0]} color={"green"} size={[1,1,1]}/>
@@ -101,6 +101,16 @@ const App =()=> {
       {/* <Torus position={[2,0,0]} size={[0.8,0.1,30,30]} color={"blue"}/> */}
       <TorusKnot position={[0,0,0]} size={[1,0.1,1000,50]} color={"hotpink"}/>
       <OrbitControls/>
+    </>
+  )
+}
+
+const App =()=> {
+  
+
+  return (
+    <Canvas>
+      <Scene/>
     </Canvas>
   )
 }
