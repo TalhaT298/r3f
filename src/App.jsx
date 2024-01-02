@@ -4,7 +4,7 @@
 import { useRef, useState } from 'react'
 import './App.css'
 import {Canvas, events, useFrame} from "@react-three/fiber"
-
+import { OrbitControls} from '@react-three/drei'
 
 const Cube = ({position,size,color}) => {
   const ref = useRef()
@@ -66,13 +66,13 @@ const Torus = ({position,size,color}) =>{
 const TorusKnot = ({position,size,color}) =>{
   const ref = useRef()
 
-  // eslint-disable-next-line no-unused-vars
-  useFrame((state,delta) =>{
-      ref.current.rotation.x += delta
-      ref.current.rotation.y += delta*2.0
-      ref.current.position.z=Math.sin(state.clock.elapsedTime)*2
+  
+  // useFrame((state,delta) =>{
+  //     ref.current.rotation.x += delta
+  //     ref.current.rotation.y += delta*2.0
+  //     ref.current.position.z=Math.sin(state.clock.elapsedTime)*2
 
-    })
+  //   })
   return(
     <mesh position={position} ref={ref}>
       <torusKnotGeometry args={size}/>
@@ -98,7 +98,8 @@ const App =()=> {
       {/* <Cube position={[0,0,1]} size={[1,1,1]} color={"orange"}/> */}
       {/* <Sphere position={[0,0,0]} size={[1,30,30]} color={"orange"}/> */}
       {/* <Torus position={[2,0,0]} size={[0.8,0.1,30,30]} color={"blue"}/> */}
-      <TorusKnot position={[-2,0,0]} size={[0.5,0.1,1000,50]} color={"hotpink"}/>
+      <TorusKnot position={[0,0,0]} size={[1,0.1,1000,50]} color={"hotpink"}/>
+      <OrbitControls/>
     </Canvas>
   )
 }
