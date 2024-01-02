@@ -29,10 +29,12 @@ const Sphere = ({position,size,color}) =>{
   const ref = useRef()
 
   const [isHovered,setIsHovered]=useState(false)
+  const [isClicked,setIsClicked]=useState(false)
   // eslint-disable-next-line no-unused-vars
   useFrame((state,delta) =>{
       // ref.current.rotation.x += delta
-      ref.current.rotation.y += delta*0.2
+      const speed=isHovered ? 1: 0.2
+      ref.current.rotation.y += delta*speed
       // ref.current.position.z=Math.sin(state.clock.elapsedTime)*2
 
     })
