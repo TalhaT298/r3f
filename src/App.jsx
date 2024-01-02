@@ -26,10 +26,19 @@ const Cube = ({position,size,color}) => {
 }
 
 const Sphere = ({position,size,color}) =>{
+  const ref = useRef()
+
+  // eslint-disable-next-line no-unused-vars
+  useFrame((state,delta) =>{
+      ref.current.rotation.x += delta
+      ref.current.rotation.y += delta*2.0
+      ref.current.position.z=Math.sin(state.clock.elapsedTime)*2
+
+    })
   return(
-    <mesh position={position}>
+    <mesh position={position} ref={ref}>
       <sphereGeometry args={size}/>
-      <meshStandardMaterial color={color}/>
+      <meshStandardMaterial color={color} wireframe/>
     </mesh>
   )
 }
@@ -43,8 +52,17 @@ const Torus = ({position,size,color}) =>{
   )
 }
 const TorusKnot = ({position,size,color}) =>{
+  const ref = useRef()
+
+  // eslint-disable-next-line no-unused-vars
+  useFrame((state,delta) =>{
+      ref.current.rotation.x += delta
+      ref.current.rotation.y += delta*2.0
+      ref.current.position.z=Math.sin(state.clock.elapsedTime)*2
+
+    })
   return(
-    <mesh position={position}>
+    <mesh position={position} ref={ref}>
       <torusKnotGeometry args={size}/>
       <meshStandardMaterial color={color}/>
     </mesh>
