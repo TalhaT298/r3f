@@ -12,7 +12,8 @@ const Cube = ({position,size,color}) => {
   // eslint-disable-next-line no-unused-vars
   useFrame((state,delta) =>{
       ref.current.rotation.x += delta
-      ref.current.rotation.y += delta
+      ref.current.rotation.y += delta*2.0
+      
     })
   return(
     <mesh position={position} ref={ref}>
