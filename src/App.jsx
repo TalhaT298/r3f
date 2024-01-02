@@ -44,6 +44,7 @@ const Sphere = ({position,size,color}) =>{
     ref={ref} 
     onPointerEnter={(event) => (event.stopPropagation(),setIsHovered(true))}
     onPointerLeave={() => setIsHovered(false)}
+    onClick={() => setIsClicked(!isClicked)}
     >
       <sphereGeometry args={size}/>
       <meshStandardMaterial color={isHovered ? "orange" : "Lightblue"}
