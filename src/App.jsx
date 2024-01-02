@@ -96,7 +96,7 @@ const App =()=> {
       <Cube position={[1,2,0]} color={"yellow"} size={[1,1,1]}/>
       </group> */}
       {/* <Cube position={[0,0,1]} size={[1,1,1]} color={"orange"}/> */}
-      <Sphere position={[0,0,0]} size={[1,30,30]} color={"orange"}/>
+      {/* <Sphere position={[0,0,0]} size={[1,30,30]} color={"orange"}/> */}
       {/* <Torus position={[2,0,0]} size={[0.8,0.1,30,30]} color={"blue"}/>
       <TorusKnot position={[-2,0,0]} size={[0.5,0.1,1000,50]} color={"hotpink"}/> */}
     </Canvas>
