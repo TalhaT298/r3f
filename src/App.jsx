@@ -6,6 +6,7 @@ import './App.css'
 import {Canvas, events, useFrame} from "@react-three/fiber"
 import { MeshWobbleMaterial, OrbitControls, useHelper} from '@react-three/drei'
 import { DirectionalLight, DirectionalLightHelper } from 'three'
+import { useControls } from 'leva'
 
 const Cube = ({position,size,color}) => {
   const ref = useRef()
@@ -85,10 +86,13 @@ const TorusKnot = ({position,size,color}) =>{
 
 const Scene =() => {
   const directionalLightREf = useRef()
+  const {LightColor,LightIntensity}= useControls({
+    LightColor:"White",
+  })
   useHelper(directionalLightREf, DirectionalLightHelper,0.5,"white")
   return(
     <>
-    <directionalLight position={[0,1,2]} intensity={0.5} ref={directionalLightREf}/>
+    <directionalLight position={[0,1,2]} intensity={0.5} ref={directionalLightREf} color={LightColor}/>
       <ambientLight intensity={0.1}/>
       {/* <group position={[0,-1,0]}>
       <Cube position={[1,0,0]} color={"green"} size={[1,1,1]}/>
