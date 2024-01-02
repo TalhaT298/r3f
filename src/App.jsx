@@ -65,9 +65,17 @@ const Torus = ({position,size,color}) =>{
     </mesh>
   )
 }
-const TorusKnot = ({position,size,color}) =>{
+const TorusKnot = ({position,size}) =>{
   const ref = useRef()
-
+const {color,radius}= useControls({
+  color:"Lightblue",
+  radius:{
+    value:5,
+    min: 1,
+    max: 10,
+    step: 0.5,
+  },
+})
   
   // useFrame((state,delta) =>{
   //     ref.current.rotation.x += delta
@@ -88,11 +96,17 @@ const Scene =() => {
   const directionalLightREf = useRef()
   const {LightColor,LightIntensity}= useControls({
     LightColor:"White",
+    LightIntensity:{
+      value:0.5,
+      min:0,
+      max:5,
+      step:0.1
+    }
   })
   useHelper(directionalLightREf, DirectionalLightHelper,0.5,"white")
   return(
     <>
-    <directionalLight position={[0,1,2]} intensity={0.5} ref={directionalLightREf} color={LightColor}/>
+    <directionalLight position={[0,1,2]} intensity={LightIntensity} ref={directionalLightREf} color={LightColor}/>
       <ambientLight intensity={0.1}/>
       {/* <group position={[0,-1,0]}>
       <Cube position={[1,0,0]} color={"green"} size={[1,1,1]}/>
