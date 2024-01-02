@@ -4,7 +4,7 @@
 import { useRef, useState } from 'react'
 import './App.css'
 import {Canvas, events, useFrame} from "@react-three/fiber"
-import { OrbitControls} from '@react-three/drei'
+import { MeshWobbleMaterial, OrbitControls} from '@react-three/drei'
 
 const Cube = ({position,size,color}) => {
   const ref = useRef()
@@ -76,7 +76,8 @@ const TorusKnot = ({position,size,color}) =>{
   return(
     <mesh position={position} ref={ref}>
       <torusKnotGeometry args={size}/>
-      <meshStandardMaterial color={color}/>
+      {/* <meshStandardMaterial color={color}/> */}
+      <MeshWobbleMaterial factor={5}/>
     </mesh>
   )
 }
