@@ -9,7 +9,7 @@ const Cube = ({position,size,color}) => {
   const ref = useRef()
 
   useFrame((state,delta) =>{})
-
+      ref.current.rotation.x += delta
   return(
     <mesh position={position} ref={ref}>
         <boxGeometry args={size}/>
@@ -32,7 +32,7 @@ const App =()=> {
       <Cube position={[-1,2,0]} color={"blue"} size={[1,1,1]}/>
       <Cube position={[1,2,0]} color={"yellow"} size={[1,1,1]}/>
       </group> */}
-      
+      <Cube/>
     </Canvas>
   )
 }
