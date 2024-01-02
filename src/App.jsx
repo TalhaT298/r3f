@@ -49,7 +49,7 @@ const App =()=> {
       <Cube position={[1,2,0]} color={"yellow"} size={[1,1,1]}/>
       </group> */}
       {/* <Cube position={[0,0,1]} size={[1,1,1]} color={"orange"}/> */}
-      <Sphere/>
+      <Sphere position={[0,0,o]} size={[1,30,30]}/>
     </Canvas>
   )
 }
