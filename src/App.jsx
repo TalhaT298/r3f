@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/no-unknown-property */
 import { useRef } from 'react'
@@ -8,8 +9,11 @@ import {Canvas, useFrame} from "@react-three/fiber"
 const Cube = ({position,size,color}) => {
   const ref = useRef()
 
-  useFrame((state,delta) =>{})
+  // eslint-disable-next-line no-unused-vars
+  useFrame((state,delta) =>{
       ref.current.rotation.x += delta
+      ref.current.rotation.y += delta
+    })
   return(
     <mesh position={position} ref={ref}>
         <boxGeometry args={size}/>
@@ -32,7 +36,7 @@ const App =()=> {
       <Cube position={[-1,2,0]} color={"blue"} size={[1,1,1]}/>
       <Cube position={[1,2,0]} color={"yellow"} size={[1,1,1]}/>
       </group> */}
-      <Cube/>
+      <Cube position={[0,0,1]} size={[1,1,1]} color={"orange"}/>
     </Canvas>
   )
 }
