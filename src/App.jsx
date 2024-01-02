@@ -25,6 +25,15 @@ const Cube = ({position,size,color}) => {
   )
 }
 
+const Sphere = ({position,size,color}) =>{
+  return(
+    <mesh>
+      <sphereGeometry/>
+      <meshStandardMaterial/>
+    </mesh>
+  )
+}
+
 
 const App =()=> {
   
@@ -39,7 +48,8 @@ const App =()=> {
       <Cube position={[-1,2,0]} color={"blue"} size={[1,1,1]}/>
       <Cube position={[1,2,0]} color={"yellow"} size={[1,1,1]}/>
       </group> */}
-      <Cube position={[0,0,1]} size={[1,1,1]} color={"orange"}/>
+      {/* <Cube position={[0,0,1]} size={[1,1,1]} color={"orange"}/> */}
+      <Sphere/>
     </Canvas>
   )
 }
